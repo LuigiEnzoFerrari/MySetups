@@ -1,0 +1,24 @@
+
+# for programming in C language
+alias aout='./a.out'
+alias dout='rm ./a.out'
+
+# for programming in Python
+alias python='python3'
+
+# for playing with docker
+alias drm='docker rm -f'
+alias drmi='docker rmi -f'
+alias drma='docker rm -f $(docker ps -aq)'
+alias drmia='docker rmi -f $(docker images -q)'
+alias drmiall='drm && drmi'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias dim='docker images'
+alias dl='docker logs -f'
+
+# for playing with docker-compose
+alias dcu='docker-compose up'
+alias dcb='docker-compose build'
+alias dcr='docker-compose run'
+
