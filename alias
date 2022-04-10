@@ -1,3 +1,6 @@
+alias adit='vim ~/.bashrc'
+
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\$ '
 
 # for programming in C language
 alias aout='./a.out'
@@ -21,4 +24,22 @@ alias dl='docker logs -f'
 alias dcu='docker-compose up'
 alias dcb='docker-compose build'
 alias dcr='docker-compose run'
+
+# expand all env variables from a file
+expand () {
+        export $(cat "$1" | xargs)
+}
+
+# create e virtual environment for python
+cvenv () {
+        python3 -m venv ~/bin/venv/"$1"
+}
+
+svenv () {
+        source ~/bin/venv/"$1"/bin/activate
+}
+
+rvenv () {
+        rm -rf ~/bin/venv/"$1"
+}
 
