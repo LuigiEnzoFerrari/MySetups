@@ -43,3 +43,26 @@ rvenv () {
         rm -rf ~/bin/venv/"$1"
 }
 
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gst='git status'
+gci () {
+        git commit -m "$1"
+}
+
+gcia () {
+        git commit --amend -m "$1"
+}
+
+gcian () {
+        git commit --amend --no-edit
+}
+
+alias gbr='git branch'
+alias gps='git push'
+alias gpl='git pull'
+alias gpsf='git push --force'
+alias gpsu='git push -u orgin'
+alias grb='git rebase'
+alias grt='git reset --hard'
+
