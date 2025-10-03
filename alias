@@ -58,6 +58,8 @@ gcian () {
         git commit --amend --no-edit
 }
 
+
+# for playing with git
 alias gbr='git branch'
 alias gps='git push'
 alias gpl='git pull'
@@ -66,3 +68,7 @@ alias gpsu='git push -u orgin'
 alias grb='git rebase'
 alias grt='git reset --hard'
 
+
+## update linux
+
+alias update='sudo apt update && sudo apt upgrade -y'
