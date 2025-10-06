@@ -66,3 +66,9 @@ transparent dock
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED' \
 gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.0
 ```
+
+center dock icons
+
+```sh
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+```
