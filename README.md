@@ -19,6 +19,8 @@ Flatpak/Flathub
 
 https://flatpak.org/setup/Ubuntu
 
+Using flatpak install hidamari to use animated wallapaper
+
 Install AppImageLaucher
 
 > To handle app images instalation, once installed download the app and double click. select Integrate and run

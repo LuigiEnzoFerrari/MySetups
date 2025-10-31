@@ -60,15 +60,21 @@ gcian () {
 
 
 # for playing with git
+alias ga='git add'
 alias gbr='git branch'
 alias gps='git push'
 alias gpl='git pull'
 alias gpsf='git push --force'
-alias gpsu='git push -u orgin'
+alias gpsu='git push -u origin'
 alias grb='git rebase'
 alias grt='git reset --hard'
-
 
 ## update linux
 
 alias update='sudo apt update && sudo apt upgrade -y'
+
+## install .deb packages
+
+install () {
+        sudo apt install "$1"
+}
