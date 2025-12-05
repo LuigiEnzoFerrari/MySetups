@@ -1,4 +1,24 @@
-alias adit='vim ~/.bashrc'
+export SETUP_PATH="/home/luigiferrari/setup"
+
+myset() {
+  if [ "$1" = "vim" ]; then
+    vim $SETUP_PATH/alias
+  elif [ "$1" = "anti" ]; then
+    anti $SETUP_PATH/alias
+  else
+    echo "Usage: myset [vim|anti]"
+  fi
+}
+
+_myset_completions() {
+  local cur opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  opts="vim anti"
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+}
+complete -F _myset_completions myset
+
 
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\$ '
 
@@ -20,10 +40,19 @@ alias dpsa='docker ps -a'
 alias dim='docker images'
 alias dl='docker logs -f'
 
+alias dvi='docker volume inspect'
+alias dvl='docker volume ls'
+alias dvr='docker volume rm'
+alias dvc='docker volume create'
+
 # for playing with docker-compose
 alias dcu='docker-compose up'
 alias dcb='docker-compose build'
 alias dcr='docker-compose run'
+
+dit () {
+        docker exec -it "$1" /bin/bash
+}
 
 # expand all env variables from a file
 expand () {
@@ -78,3 +107,5 @@ alias update='sudo apt update && sudo apt upgrade -y'
 install () {
         sudo apt install "$1"
 }
+
+source ./temp.sh
