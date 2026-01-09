@@ -40,23 +40,32 @@ alias dpsa='docker ps -a'
 alias dim='docker images'
 alias dl='docker logs -f'
 
+
+# docker system prune -a --volumes
+alias dpr='docker system prune -a --volumes'
+
+
 alias dvi='docker volume inspect'
 alias dvl='docker volume ls'
 alias dvr='docker volume rm'
 alias dvc='docker volume create'
+alias dvp='docker volume prune'
+alias dvra='docker volume rm $(docker volume ls -q)'
 
 # for playing with docker-compose
-alias dcu='docker-compose up'
-alias dcb='docker-compose build'
-alias dcr='docker-compose run'
+alias dcu='docker compose up'
+alias dcb='docker compose build'
+alias dcr='docker compose run'
 
+
+# requires install fzf
 dit () {
-        docker exec -it "$1" /bin/bash
+        docker exec -it $(docker ps --format "{{.Names}}" | fzf) $1
 }
 
 # expand all env variables from a file
 expand () {
-        export $(cat "$1" | xargs)
+        set -a; source "$1"; set +a
 }
 
 # create e virtual environment for python
@@ -72,8 +81,8 @@ rvenv () {
         rm -rf ~/bin/venv/"$1"
 }
 
-alias gco='git checkout'
-alias gcob='git checkout -b'
+alias gsw='git switch'
+alias gswc='git switch -c'
 alias gst='git status'
 gci () {
         git commit -m "$1"
@@ -108,4 +117,18 @@ install () {
         sudo apt install "$1"
 }
 
-source ./temp.sh
+source $SETUP_PATH/temp.sh
+
+# fkill - search processes and kill selected
+fkill() {
+  local pid
+  if [ "$UID" != "0" ]; then
+      pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+  else
+      pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  fi
+
+  if [ "x$pid" != "x" ]; then
+      echo $pid | xargs kill -${1:-9}
+  fi
+}
