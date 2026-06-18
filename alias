@@ -44,6 +44,12 @@ alias dl='docker logs -f'
 # docker system prune -a --volumes
 alias dpr='docker system prune -a --volumes'
 
+alias dni='docker network inspect'
+alias dnl='docker network ls'
+alias dnr='docker network rm'
+alias dnc='docker network create'
+alias dnp='docker network prune'
+alias dnra='docker network rm $(docker network ls -q)'
 
 alias dvi='docker volume inspect'
 alias dvl='docker volume ls'
@@ -132,3 +138,8 @@ fkill() {
       echo $pid | xargs kill -${1:-9}
   fi
 }
+
+# for development in golang
+
+alias gor="go run ./cmd/api/main.go"
+ alias sudo='sudo '
