@@ -63,6 +63,19 @@ alias dcu='docker compose up'
 alias dcb='docker compose build'
 alias dcr='docker compose run'
 
+# terraform
+
+alias tf="terraform"
+alias tfa="terraform apply"
+alias tfaa="terraform apply -auto-approve"
+alias tfd="terraform destroy"
+alias tfda="terraform destroy -auto-approve"
+alias tfi="terraform init"
+alias tfp="terraform plan"
+alias tfv="terraform validate"
+alias tff="terraform fmt"
+alias tffr="terraform fmt -recursive"
+alias tfclean="rm -rf .terraform/ .terraform.lock.hcl terraform.tfstate.backup terraform.tfstate"
 
 # requires install fzf
 dit () {
